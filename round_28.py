@@ -11,7 +11,7 @@ creds = Credentials.from_service_account_info(service_account_info, scopes=["htt
 gc = gspread.authorize(creds)
 
 # ลิงก์ Google Sheet ของคุณ
-spreadsheet_url = "https://docs.google.com/spreadsheets/d/1S0kIH9jchaJi_0eck5UEyUR8nTn2arndQxFmxZtw2k8/edit#gid=0"
+spreadsheet_url = "https://docs.google.com/spreadsheets/d/1SOkIH9jchaJi_0eck5UeyUR8sTn2arndQofmXv5pTdQ/edit?usp=sharing"
 worksheet = gc.open_by_url(spreadsheet_url).worksheet("Sheet8")
 
 # รับข้อมูลจากผู้ใช้
