@@ -3,7 +3,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 st.title("📊 วิเคราะห์อัตราสึกหรอและชั่วโมงที่เหลือของ Brush")
-st.subheader("📝 เพิ่มข้อมูลจำนวนชั่วโมงลง Sheet8")
+st.subheader("📝 เพิ่มข้อมูลจำนวนชั่วโมงลง Sheet8 ที่เซลล์ H1")
 
 # อ่าน Credentials จาก Secrets ที่ตั้งไว้ใน Streamlit Cloud
 service_account_info = st.secrets["gcp_service_account"]
@@ -19,7 +19,7 @@ input_hours = st.number_input("กรอกจำนวนชั่วโมง"
 
 if st.button("➕ เพิ่มข้อมูลจำนวนชั่วโมง"):
     try:
-        worksheet.append_row([input_hours])
-        st.success(f"เพิ่มข้อมูลสำเร็จ: {input_hours}")
+        worksheet.update("H1", [[input_hours]])
+        st.success(f"เพิ่มข้อมูลลงเซลล์ H1 สำเร็จ: {input_hours}")
     except Exception as e:
-        st.error(f"โหลด credentials ไม่สำเร็จ: {e}")
+        st.error(f"โหลด credentials หรืออัปเดตไม่สำเร็จ: {e}")
